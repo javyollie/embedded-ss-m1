@@ -9,4 +9,7 @@
 /**
  * Version Control is exercised in this example
  *
+ * This file is an example .c file for the Embedded Systems
+ * Specialization Course from the University of Colorado brought to you by 
+ * Coursera.
  */ 
