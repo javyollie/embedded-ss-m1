@@ -27,28 +27,11 @@
  */
 
 
-#include <stdlib.h>
 #include <stdio.h>
 #include "stats.h"
 
 /* Size of the Data Set */
 #define SIZE (40)
-
-// Function declarations
-void print_statistics(unsigned char median, unsigned char mean,
-	       	unsigned char maximum, unsigned char minimum);
-
-void print_array(unsigned char * stats, unsigned int length);      
-
-unsigned char find_mean(unsigned char * stats, unsigned int length);       
-
-unsigned char find_maximum(unsigned char * stats, unsigned int length); 
-
-unsigned char find_minimum(unsigned char * stats, unsigned int length);
-
-unsigned char find_median(unsigned char * stats, unsigned int length);       
-
-unsigned char * sort_array(unsigned char * stats, unsigned int length);       
 
 void main() {
   unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
@@ -62,16 +45,16 @@ void main() {
  unsigned char maximum;
  unsigned char minimum;
  unsigned char median;
- unsigned char * sorted_array;
+ unsigned char sorted_array[SIZE];
  
  /* Statistics and Printing Functions */
  print_array(test, SIZE);
  mean = find_mean(test, SIZE);
  maximum = find_maximum(test, SIZE);
  minimum = find_minimum(test, SIZE);
- sorted_array = sort_array(test, SIZE);
+// sorted_array = sort_array(test, sorted_array, SIZE);
 
- median = find_median(sorted_array, SIZE);
+ median = find_median(sort_array(test, sorted_array, SIZE), SIZE);
 
  print_statistics(median, mean, maximum, minimum);
  
@@ -157,17 +140,11 @@ unsigned char find_minimum(unsigned char * stats, unsigned int length){
 // Given an array of data and a length, sorts the array from largest
 // to smallest.(The zeroth Element should be the largest value, and
 // the last element(n-1)  should be the smallest value.)
-unsigned char * sort_array(unsigned char * stats, unsigned int length){
+unsigned char * sort_array(unsigned char * stats, unsigned char * sort_stats, unsigned int length){
  unsigned char i;
  unsigned char j;
  unsigned char k;
  unsigned char sort_large = stats[0];
- static unsigned char * sort_stats;	// Declared static to pass sorted array to find median
- 
- // Added stdlib.h library to use malloc function
- // length is read as a variable length; cannot have variable length array with static
- // malloc allocates block of memory on the heap which allows a dynamic array
- sort_stats = malloc(length * sizeof(unsigned char));	
 
  printf("\n\nSorted data array from largest to smallest (utilized to find median): \n\n");
 

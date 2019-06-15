@@ -12,4 +12,9 @@
  * This file is an example .c file for the Embedded Systems
  * Specialization Course from the University of Colorado brought to you by 
  * Coursera.
- */ 
+ *
+ * To compile and run this code you can run the following commands:
+ * $ gcc -o stats.out stats.c
+ * $ ./stats.out
+ *
+ **/ 

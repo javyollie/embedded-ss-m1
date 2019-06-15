@@ -113,6 +113,6 @@ unsigned char find_minimum(unsigned char * stats, unsigned int length);
 *
 * @return unsigned char An unsigned char result returns sorted array
 */
-unsigned char * sort_array(unsigned char * stats, unsigned int length);
+unsigned char * sort_array(unsigned char * stats, unsigned char * sort_array,  unsigned int length);
 
 #endif /* __STATS_H__ */
